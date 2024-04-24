@@ -1,0 +1,47 @@
+{
+    "manifest_version": 3,
+    "name": "Auto Refresh and Click",
+    "version": "1.0",
+    "permissions": [
+        "activeTab",
+        "tabs",
+        "<all_urls>",
+        "scripting",
+        "notifications"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icon.png",
+            "48": "icon.png",
+            "128": "icon.png"
+        }
+    },
+    "commands": {
+        "start-automation": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+S"
+            },
+            "description": "Iniciar a automação"
+        },
+        "stop-automation": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+F"
+            },
+            "description": "Parar a automação"
+        }
+    }
+}
